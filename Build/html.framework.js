@@ -1155,26 +1155,26 @@ var tempDouble;
 var tempI64;
 
 var ASM_CONSTS = {
- 5384424: function() {
+ 5384440: function() {
   Module["emscripten_get_now_backup"] = performance.now;
  },
- 5384479: function($0) {
+ 5384495: function($0) {
   performance.now = function() {
    return $0;
   };
  },
- 5384527: function($0) {
+ 5384543: function($0) {
   performance.now = function() {
    return $0;
   };
  },
- 5384575: function() {
+ 5384591: function() {
   performance.now = Module["emscripten_get_now_backup"];
  },
- 5384630: function() {
+ 5384646: function() {
   return Module.webglContextAttributes.premultipliedAlpha;
  },
- 5384691: function() {
+ 5384707: function() {
   return Module.webglContextAttributes.preserveDrawingBuffer;
  }
 };
@@ -1281,7 +1281,7 @@ function stackTrace() {
 function _CheckPlatform() {
  var ua = window.navigator.userAgent.toLowerCase();
  if (ua.indexOf("android") !== -1 || ua.indexOf("ios") !== -1) {
-  unityInstance.SendMessage("Manager", "setSmartPhoneMode");
+  unityInstance.SendMessage("ScreenManager", "setSmartPhoneMode");
  }
 }
 
