@@ -14409,6 +14409,7 @@ var asmLibraryArg = {
  "glViewport": _glViewport,
  "invoke_dddi": invoke_dddi,
  "invoke_dii": invoke_dii,
+ "invoke_diii": invoke_diii,
  "invoke_diiid": invoke_diiid,
  "invoke_diiii": invoke_diiii,
  "invoke_fffi": invoke_fffi,
@@ -15766,6 +15767,17 @@ function invoke_fiii(index, a1, a2, a3) {
  }
 }
 
+function invoke_diii(index, a1, a2, a3) {
+ var sp = stackSave();
+ try {
+  return dynCall_diii(index, a1, a2, a3);
+ } catch (e) {
+  stackRestore(sp);
+  if (e !== e + 0 && e !== "longjmp") throw e;
+  _setThrew(1, 0);
+ }
+}
+
 function invoke_viiiiiii(index, a1, a2, a3, a4, a5, a6, a7) {
  var sp = stackSave();
  try {
@@ -16745,6 +16757,17 @@ function invoke_vji(index, a1, a2, a3) {
  }
 }
 
+function invoke_viij(index, a1, a2, a3, a4) {
+ var sp = stackSave();
+ try {
+  dynCall_viij(index, a1, a2, a3, a4);
+ } catch (e) {
+  stackRestore(sp);
+  if (e !== e + 0 && e !== "longjmp") throw e;
+  _setThrew(1, 0);
+ }
+}
+
 function invoke_jiiiiiiiiii(index, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10) {
  var sp = stackSave();
  try {
@@ -16815,17 +16838,6 @@ function invoke_jiji(index, a1, a2, a3, a4) {
  var sp = stackSave();
  try {
   return dynCall_jiji(index, a1, a2, a3, a4);
- } catch (e) {
-  stackRestore(sp);
-  if (e !== e + 0 && e !== "longjmp") throw e;
-  _setThrew(1, 0);
- }
-}
-
-function invoke_viij(index, a1, a2, a3, a4) {
- var sp = stackSave();
- try {
-  dynCall_viij(index, a1, a2, a3, a4);
  } catch (e) {
   stackRestore(sp);
   if (e !== e + 0 && e !== "longjmp") throw e;
