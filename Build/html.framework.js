@@ -1155,26 +1155,26 @@ var tempDouble;
 var tempI64;
 
 var ASM_CONSTS = {
- 5384440: function() {
+ 5384392: function() {
   Module["emscripten_get_now_backup"] = performance.now;
+ },
+ 5384447: function($0) {
+  performance.now = function() {
+   return $0;
+  };
  },
  5384495: function($0) {
   performance.now = function() {
    return $0;
   };
  },
- 5384543: function($0) {
-  performance.now = function() {
-   return $0;
-  };
- },
- 5384591: function() {
+ 5384543: function() {
   performance.now = Module["emscripten_get_now_backup"];
  },
- 5384646: function() {
+ 5384598: function() {
   return Module.webglContextAttributes.premultipliedAlpha;
  },
- 5384707: function() {
+ 5384659: function() {
   return Module.webglContextAttributes.preserveDrawingBuffer;
  }
 };
@@ -1276,13 +1276,6 @@ function stackTrace() {
  var js = jsStackTrace();
  if (Module["extraStackTrace"]) js += "\n" + Module["extraStackTrace"]();
  return demangleAll(js);
-}
-
-function _CheckPlatform() {
- var ua = window.navigator.userAgent.toLowerCase();
- if (ua.indexOf("android") !== -1 || ua.indexOf("ios") !== -1) {
-  unityInstance.SendMessage("ScreenManager", "setSmartPhoneMode");
- }
 }
 
 var JS_Accelerometer = null;
@@ -14000,7 +13993,6 @@ function intArrayFromString(stringy, dontAddNull, length) {
 }
 
 var asmLibraryArg = {
- "CheckPlatform": _CheckPlatform,
  "JS_Accelerometer_IsRunning": _JS_Accelerometer_IsRunning,
  "JS_Accelerometer_Start": _JS_Accelerometer_Start,
  "JS_Accelerometer_Stop": _JS_Accelerometer_Stop,
